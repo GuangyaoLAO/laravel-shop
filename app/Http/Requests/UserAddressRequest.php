@@ -13,7 +13,8 @@ class UserAddressRequest extends Request
             'address'       => 'required',
             'zip'           => 'required',
             'contact_name'  => 'required',
-            'contact_phone' => 'required',
+            //对手机号格式的判断
+            'contact_phone' => 'required|numeric|regex:/^1[345789][0-9]{9}$/',
         ];
     }
 
