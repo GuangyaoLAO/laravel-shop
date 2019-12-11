@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Exceptions\InvalidRequestException;
 
 class ProductsController extends Controller
 {
@@ -54,8 +55,16 @@ class ProductsController extends Controller
     {
         // 判断商品是否已经上架，如果没有上架则抛出异常。
         if (!$product->on_sale) {
-            throw new \Exception('商品未上架');
+            throw new InvalidRequestException('商品未上架');
         }
+        //也可以这样写，上面的写法是laravel的一个特性参考：https://learnku.com/docs/laravel/5.7/routing#route...
+        /*
+        $product = Product::find($product);
+        // 判断商品是否已经上架，如果没有上架则抛出异常。
+        if (!$product || !$product->on_sale) {
+            throw new InvalidRequestException('商品未上架');
+        }
+        */
 
         return view('products.show', ['product' => $product]);
     }
