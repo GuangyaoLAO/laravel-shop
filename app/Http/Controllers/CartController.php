@@ -6,7 +6,13 @@ use Illuminate\Http\Request;
 use App\Http\Requests\AddCartRequest;
 use App\Models\CartItem;
 use App\Models\ProductSku;
+use App\Services\CartService;
 
+/*
+ * 为把逻辑封装成service之前写法，可见业务逻辑全放在控制器里
+ * */
+
+/*
 class CartController extends Controller
 {
     public function add(AddCartRequest $request)
@@ -42,10 +48,42 @@ class CartController extends Controller
         return view('cart.index', ['cartItems' => $cartItems, 'addresses' => $addresses]);
     }
 
-
     public function remove(ProductSku $sku, Request $request)
     {
         $request->user()->cartItems()->where('product_sku_id', $sku->id)->delete();
+
+        return [];
+    }
+}*/
+
+class CartController extends Controller
+{
+    protected $cartService;
+
+    // 利用 Laravel 的自动解析功能注入 CartService 类
+    public function __construct(CartService $cartService)
+    {
+        $this->cartService = $cartService;
+    }
+
+    public function index(Request $request)
+    {
+        $cartItems = $this->cartService->get();
+        $addresses = $request->user()->addresses()->orderBy('last_used_at', 'desc')->get();
+
+        return view('cart.index', ['cartItems' => $cartItems, 'addresses' => $addresses]);
+    }
+
+    public function add(AddCartRequest $request)
+    {
+        $this->cartService->add($request->input('sku_id'), $request->input('amount'));
+
+        return [];
+    }
+
+    public function remove(ProductSku $sku, Request $request)
+    {
+        $this->cartService->remove($sku->id);
 
         return [];
     }
