@@ -48,3 +48,4 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
 Route::get('products/{product}', 'ProductsController@show')->name('products.show');
 Route::post('payment/alipay/notify', 'PaymentController@alipayNotify')->name('payment.alipay.notify');
 
+
