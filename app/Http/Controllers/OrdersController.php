@@ -32,6 +32,7 @@ class OrdersController extends Controller
         return view('orders.index', ['orders' => $orders]);
     }
 
+    //提交订单功能
     public function store(OrderRequest $request, OrderService $orderService)
     {
         $user    = $request->user();
