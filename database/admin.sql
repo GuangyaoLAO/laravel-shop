@@ -21,7 +21,7 @@
 
 LOCK TABLES `admin_menu` WRITE;
 /*!40000 ALTER TABLE `admin_menu` DISABLE KEYS */;
-INSERT INTO `admin_menu` VALUES (1,0,1,'首页','fa-bar-chart','/',NULL,NULL,'2019-12-10 19:54:58'),(2,0,6,'系统管理','fa-tasks',NULL,NULL,NULL,'2019-12-17 05:10:18'),(3,2,7,'管理员','fa-users','auth/users',NULL,NULL,'2019-12-17 05:10:18'),(4,2,8,'角色','fa-user','auth/roles',NULL,NULL,'2019-12-17 05:10:18'),(5,2,9,'权限','fa-ban','auth/permissions',NULL,NULL,'2019-12-17 05:10:18'),(6,2,10,'菜单','fa-bars','auth/menu',NULL,NULL,'2019-12-17 05:10:18'),(7,2,11,'操作日志','fa-history','auth/logs',NULL,NULL,'2019-12-17 05:10:18'),(8,0,2,'用户管理','fa-user','/users',NULL,'2019-12-10 20:17:17','2019-12-10 20:19:23'),(9,0,3,'商品管理','fa-cubes','/products',NULL,'2019-12-10 22:55:53','2019-12-10 22:56:59'),(10,0,4,'订单管理','fa-rmb','/orders',NULL,'2019-12-15 04:41:34','2019-12-15 04:44:28'),(11,0,5,'优惠券管理','fa-tags','/coupon_codes',NULL,'2019-12-17 05:09:54','2019-12-17 05:10:18');
+INSERT INTO `admin_menu` VALUES (1,0,1,'首页','fa-bar-chart','/',NULL,NULL,'2019-12-10 19:54:58'),(2,0,7,'系统管理','fa-tasks',NULL,NULL,NULL,'2019-12-23 07:17:33'),(3,2,8,'管理员','fa-users','auth/users',NULL,NULL,'2019-12-23 07:17:33'),(4,2,9,'角色','fa-user','auth/roles',NULL,NULL,'2019-12-23 07:17:33'),(5,2,10,'权限','fa-ban','auth/permissions',NULL,NULL,'2019-12-23 07:17:33'),(6,2,11,'菜单','fa-bars','auth/menu',NULL,NULL,'2019-12-23 07:17:33'),(7,2,12,'操作日志','fa-history','auth/logs',NULL,NULL,'2019-12-23 07:17:33'),(8,0,2,'用户管理','fa-user','/users',NULL,'2019-12-10 20:17:17','2019-12-10 20:19:23'),(9,0,4,'商品管理','fa-cubes','/products',NULL,'2019-12-10 22:55:53','2019-12-23 07:17:33'),(10,0,5,'订单管理','fa-rmb','/orders',NULL,'2019-12-15 04:41:34','2019-12-23 07:17:33'),(11,0,6,'优惠券管理','fa-tags','/coupon_codes',NULL,'2019-12-17 05:09:54','2019-12-23 07:17:33'),(12,0,3,'类目管理','fa-bars','/categories',NULL,'2019-12-23 07:16:45','2019-12-23 07:17:33');
 /*!40000 ALTER TABLE `admin_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -103,4 +103,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-19  8:02:25
+-- Dump completed on 2019-12-23  7:20:19
