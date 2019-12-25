@@ -65,7 +65,7 @@ class ProductsController extends Controller
                 'search' => $search,
                 'order'  => $order,
             ],
-            'category' => $category ?? null,
+            'category' => $category ?? null,//和？:有区别，这个是用isset, 当不存在时为null
         ]);
     }
 
