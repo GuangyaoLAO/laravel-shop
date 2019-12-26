@@ -232,4 +232,6 @@ return [
     //关闭未支付订单时间
     'order_ttl' => 1800,
 
+    'ngrok_url' => env('NGROK_URL'),
+
 ];
