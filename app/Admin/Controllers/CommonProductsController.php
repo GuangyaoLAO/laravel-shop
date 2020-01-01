@@ -97,11 +97,13 @@ abstract class CommonProductsController extends Controller
             $form->text('value', '属性值')->rules('required');
         });
 
-        //表单的saving事件
+        //表单的saving事件，$form->saving() 用来定义一个事件回调，当模型即将保存时会触发这个回调。我们需要在保存商品
+        //之前拿到所有 SKU 中最低的价格作为商品的价格，然后通过 $form->model()->price 存入到商品模型中。
         $form->saving(function (Form $form) {
             $form->model()->price = collect($form->input('skus'))->where(Form::REMOVE_FLAG_NAME, 0)->min('price') ?: 0;
         });
 
+        //表单的saved事件
         $form->saved(function (Form $form) {
             $product = $form->model();
             $this->dispatch(new SyncOneProductToES($product));
